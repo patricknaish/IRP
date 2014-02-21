@@ -195,28 +195,3 @@
         * Define service-level agreements
         * Implement and deploy services
         * Integrates legacy system at presentation layer
-
-
-# References
-- J.Chatarji: Introduction to service-oriented architecture (SOA) (2004) 
-- Comella-Dorda, S.,Wallnau, K.C., Seacord, R.C., Robert, J.E.: A survey of black- box modernization approaches for information systems. In: ICSM. (2000) 173–183
-- Sneed, H.M.: Integrating legacy software into a service oriented architecture. In: CSMR. (2006) 3–14
-- Sneed, H.M.: Wrapping legacy software for reuse in a SOA. Technical report (2005) 5. Canfora, G., Fasolino, A.R., Frattolillo, G., Tramontana, P.: Migrating interactive legacy systems to web services. In: CSMR. (2006) 24–36
-- Canfora, G., Fasolino, A.R., Frattolillo, G., Tramontana, P.: A wrapping approach for migrating legacy system interactive functionalities to service oriented architectures. J. Systems and Software 81(4) (2008) 463–480
-- Stroulia, E., El-Ramly, M., Sorenson, P.G., Penner, R.: Legacy systems migration in CelLEST. In: ICSE Posters. (2000) 790
-- Stroulia, E., El-Ramly, M., Sorenson, P.G.: From legacy to web through interaction modeling. In: ICSM. (2002) 320–329
-- Sneed, H.M., Sneed, S.H.: Creating web services from legacy host programs. In: WSE. (2003) 59–65
-- Chung, S., Young, P.S., Nelson, J.: Service-oriented software reengineering: Bertie3 as web services. In: ICWS. (2005) 837–838
-- Chung, S., An, J.B.C., Davalos, S.: Service-oriented software reengineering: SoSR. In: HICSS-40. (2007) 172c
-- Distante, D., Tilley, S.R., Canfora, G.: Towards a holistic approach to redesigning legacy applications for the web with uwat. In: CSMR. (2006) 295–299
-- Chen, F., Li, S., Chu, W.C.C.: Feature analysis for service-oriented reengineering. In: APSEC. (2005) 201–208
-- Cuadrado, F., Garc´ ıa, B., Due˜ nas, J.C., G., H.A.P.: A case study on software evolution towards service-oriented architecture. In: AINA. (2008) 1399–1404
-- Aversano, L., Canfora, G., Cimitile, A., Lucia, A.D.: Migrating legacy systems to the web: An experience report. In: CSMR. (2001) 148–157
-- O’Brien, L., Smith, D.B., Lewis, G.A.: Supporting migration to services using software architecture reconstruction. In: STEP. (2005) 81–91
-- Lewis, G.A., Morris, E.J., Smith, D.B.: Analyzing the reuse potential of migrating legacy components to a service-oriented architecture. In: CSMR. (2006) 15–23
-- Lewis, G.A., Morris, E.J., Smith, D.B., O’Brien, L.: Service-oriented migration and reuse technique (smart). In: STEP. (2005) 222–229
-- Smith, D.B.: Migration of legacy assets to service-oriented architecture environ- ments. In: ICSE Companion. (2007) 174–175
-- Zhang, Z., Yang, H.: Incubating services in legacy systems for architectural mi- gration. In: APSEC. (2004) 196–203
-- Zhang, J., Chung, J.Y., Chang, C.K.: Migration to web services oriented architec- ture: a case study. In: SAC. (2004) 1624–1628
-- Cetin, S., Altintas, N.I., Oguztuzun, H., Dogru, A.H., Tufekci, O., Suloglu, S.: Legacy migration to service-oriented computing with mashups. In: ICSEA. (2007) 21c
-- Marchetto, A., Ricca, F.: From objects to services: toward a stepwise migration approach for java applications. STTT 11(6) (2009) 427–440

@@ -1,0 +1,54 @@
+# References
+
+- J.Chatarji: Introduction to service-oriented architecture (SOA) (2004) 
+- Comella-Dorda, S.,Wallnau, K.C., Seacord, R.C., Robert, J.E.: A survey of black- box modernization approaches for information systems. In: ICSM. (2000) 173–183
+- Sneed, H.M.: Integrating legacy software into a service oriented architecture. In: CSMR. (2006) 3–14
+- Sneed, H.M.: Wrapping legacy software for reuse in a SOA. Technical report (2005) 5. Canfora, G., Fasolino, A.R., Frattolillo, G., Tramontana, P.: Migrating interactive legacy systems to web services. In: CSMR. (2006) 24–36
+- Canfora, G., Fasolino, A.R., Frattolillo, G., Tramontana, P.: A wrapping approach for migrating legacy system interactive functionalities to service oriented architectures. J. Systems and Software 81(4) (2008) 463–480
+- Stroulia, E., El-Ramly, M., Sorenson, P.G., Penner, R.: Legacy systems migration in CelLEST. In: ICSE Posters. (2000) 790
+- Stroulia, E., El-Ramly, M., Sorenson, P.G.: From legacy to web through interaction modeling. In: ICSM. (2002) 320–329
+- Sneed, H.M., Sneed, S.H.: Creating web services from legacy host programs. In: WSE. (2003) 59–65
+- Chung, S., Young, P.S., Nelson, J.: Service-oriented software reengineering: Bertie3 as web services. In: ICWS. (2005) 837–838
+- Chung, S., An, J.B.C., Davalos, S.: Service-oriented software reengineering: SoSR. In: HICSS-40. (2007) 172c
+- Distante, D., Tilley, S.R., Canfora, G.: Towards a holistic approach to redesigning legacy applications for the web with uwat. In: CSMR. (2006) 295–299
+- Chen, F., Li, S., Chu, W.C.C.: Feature analysis for service-oriented reengineering. In: APSEC. (2005) 201–208
+- Cuadrado, F., Garc´ ıa, B., Due˜ nas, J.C., G., H.A.P.: A case study on software evolution towards service-oriented architecture. In: AINA. (2008) 1399–1404
+- Aversano, L., Canfora, G., Cimitile, A., Lucia, A.D.: Migrating legacy systems to the web: An experience report. In: CSMR. (2001) 148–157
+- O’Brien, L., Smith, D.B., Lewis, G.A.: Supporting migration to services using software architecture reconstruction. In: STEP. (2005) 81–91
+- Lewis, G.A., Morris, E.J., Smith, D.B.: Analyzing the reuse potential of migrating legacy components to a service-oriented architecture. In: CSMR. (2006) 15–23
+- Lewis, G.A., Morris, E.J., Smith, D.B., O’Brien, L.: Service-oriented migration and reuse technique (smart). In: STEP. (2005) 222–229
+- Smith, D.B.: Migration of legacy assets to service-oriented architecture environ- ments. In: ICSE Companion. (2007) 174–175
+- Zhang, Z., Yang, H.: Incubating services in legacy systems for architectural mi- gration. In: APSEC. (2004) 196–203
+- Zhang, J., Chung, J.Y., Chang, C.K.: Migration to web services oriented architec- ture: a case study. In: SAC. (2004) 1624–1628
+- Cetin, S., Altintas, N.I., Oguztuzun, H., Dogru, A.H., Tufekci, O., Suloglu, S.: Legacy migration to service-oriented computing with mashups. In: ICSEA. (2007) 21c
+- Marchetto, A., Ricca, F.: From objects to services: toward a stepwise migration approach for java applications. STTT 11(6) (2009) 427–440
+- Aversano, L., Canfora, G., deLucia, A.: Migrating legacy system to the web. In: Proceedings of CSMR-2001, p. 148. IEEE Computer Society Press, Lisabon (2001)
+- Bodhuin, T., Guardabascio, E., Tortorella, M.: Migrating COBOL Systems to the Web, WCRE-2002, p. 329. IEEE Computer Society Press, Richmond (2002)
+- Bodhuin, T., Guardabascio, E., Tortorella, M.: Migration of non-decomposable software systems to the Web using screen proxies. In: Proceedings of WCRE-2003, p. 165. IEEE Computer Society Press, Victoria (2003)
+- Bichler, M., Kwei-Jay, L.: Service oriented Computing, p. 99. IEEE Computer (2006)
+- Canfora, G., Fasolino, H., Frattolillo, G.: Migrating interactive legacy system to web services. In: Proceedings of CSMR-2006, p. 23. IEEE Computer Society Press, Bari (2006)
+- Ceccato, M., Tonella, P., Matteotti, C.: GoTo elimination strategies in the migration of legacy code to java. In: IEEE Proceedings of CSMR2008, Athens, p. 53 (2008)
+- Horowitz, E.: Migrating Software to the World Wide Web. IEEE Software, p. 18 (1998) 
+- Computerwoche, Nr. 32, Report of German Software Initiative, p. 5 (2008)
+- DeLucia, et al.: Developing legacy system migration methods and tools for technology transfer. Softw. Pract. Exp. 38(13), (2008)
+- Fantechi, A., Nesi, P., Somma, E.: Object-oriented conversion of COBOL. In: Proceedings of CSMR1997, Berlin, p. 157 (1997)
+- Fergen, H., Reichelt P., Schmidt, K.: Bringing Objects into COBOL—Moore, a tool for migrating from COBOL to OO-COBOL. In: Proceedings of International Conference on Technology of OO Languages and Systems, TOOLS94, New Orleans, p. 435 (1994)
+- Krafzig, D., Banke, K., Schama, D.: Enterprise SOA, Coad Series, p. 6. Prentice-Hall, Upper Saddle River (2004)
+- Keyes, J.: Datacasting—How to Stream Data Over the Internet, p. 241. Mcgraw-Hill, New York (1989)
+- Kontogiannis, K., Lewis, G., Smith, D.: The landscape of service-oriented systems: a research perspective for maintenance and reengineering. In: 2nd Workshop on SOA Based Systems in Proceedings of CSMR2008, p. 336. IEEE Computer Society Press (2008)
+- Kontogiannis, K., Lewis, G., Smith, D.: A research agenda for service-oriented maintenance. In: Workshop Proceedings of CSMR-2007, Amsterdam, p. 100 (2007)
+- Puhr, P., Sneed, H.: Code stripping as a means of instrumenting embedded systems. In: EU ESPRIT Project 1258—Report-1258-3, Liverpool (1989)
+- Seacord, R., Plakosh, D., Lewis, G.: Modernizing Legacy Systems, p. 120. Addison-Wesley, Reading (2003)
+- Sneed, H.: Migrating to Web services—a research framework. In: Workshop Proceedings of CSMR-2007, Amsterdam, p. 116 (2007)
+- Sneed, H.: Understanding software through numbers. J. Softw. Maint. 7(6), 405 (1995)
+- Sneed, H.: Measuring reusability of legacy software. In: Software Process, Vol 4, Issue 1, p. 43 (1998)
+- Sneed, H., Majnar, R.: A case study in software wrapping. In: Proceedings of International Conference on Software Maintenance, pp. 86–93. IEEE Computer Society Press, Washington (1998)
+- Sneed H.: Object-oriented Software Migration. Addison-Wesley, Bonn (1999)
+- Sneed, H.: Wrapping legacy COBOL programs behind an XML interface. In: Proceedings of WCRE-2001, p. 189. IEEE Computer Society Press, Stuttgart (2001)
+- Sneed, H., Erdoes, K.: Extracting business rules from source code. In: Proceedings of IWPC-96, p. 240. IEEE Computer Society Press, Berlin (1996)
+- Sneed, H.: Integrating legacy Software into a Service oriented Architecture. In: Proceedings of CSMR-2006, p. 3. IEEE Computer Society Press, Bari (2006)
+- Sneed, H.: Certification of Web services. In: 2nd Workshop on SOA based systems in Proceedings of CSMR2008, p. 336. IEEE Computer Society Press (2008)
+- Sneed H.: Measuring 75 million lines of code. In: Proceedings of IWSM-2008, Munich, p. 271. Springer, Berlin (2008)
+- Tilley, S., Distante, D., Huang, S.: Web site evolution via transaction reengineering. In: Proceedings of WSE 2004, Chicago, p. 31 (2004)
+- Terekhov, A., Koznov, D., Boulychev, D.: Project specific languages and their application in reengineering. In: IEEE Proceedings of CSMR2002, Budapest, p. 177 (2002)
+- Ying, Z., Qi, Z., Xulin, Z.: Improving the usability of e-commerce applications using business processes. IEEE Trans. SE 33(12), 837 (2007)
