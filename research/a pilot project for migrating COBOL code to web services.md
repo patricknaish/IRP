@@ -90,4 +90,28 @@
     + Flexibility
         * Data independence
         * No hard-coded data
-* 
+- Code stripping
+    + Select paths through a program by blending out unused data and statements
+    + Generates multiple instances of the same program
+    + Each instance is a separate web service
+    + Each instance corresponds to a particular business rule
+    + COBStrip
+        * Data slicing
+        * Several passes required for different business rules from same program
+        * Requires human interaction (for verification)
+- WSDL wrapping
+    + COBWrap
+        * Replaces IO with calls to wrapper module
+        * Moves IO data from Linkage to Working-Storage
+        * Fully automated
+    + COBLink
+        * Generates wrapper modules to link to wrapped program
+        * Creates WSDL schema for web service request (from Linkage)
+        * Creates corresponding COBOL module for translating request into input parameters of program
+        * Creates WSDL schema for web service response (from Linkage)
+        * Creates corresponding COBOL module for transferring output parameters of program into WSDL response
+
+
+# Results
+
+- 
