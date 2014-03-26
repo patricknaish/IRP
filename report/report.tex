@@ -12,7 +12,7 @@
 \usepackage{array}
 \usepackage{hyperref}
 \usepackage{url}
-
+\usepackage[noadjust]{cite}
 
 % correct bad hyphenation here
 %\hyphenation{op-tical net-works semi-conduc-tor}
@@ -21,7 +21,7 @@
 \begin{document}
 
 \title{Investigating the feasibility and worth of migrating legacy systems}
-\author{Patrick~Naish~(\texttt{pn3g10@soton.ac.uk})}
+\author{Patrick~Naish~\\\texttt{pn3g10@zepler.net}}
 
 
 \IEEEcompsoctitleabstractindextext{%
@@ -43,40 +43,38 @@ The abstract goes here.
 \section{Introduction}
 \label{sec:introduction}
 
-\IEEEPARstart{T}{his} project will be an investigation into the existing and proposed tools and methodologies for migrating mainframe (or similar legacy system) applications to run under more modern systems, such as on PCs, distributed systems and/or web services. Assessing the usefulness of such tools and methodologies is important for making decisions on whether to attempt to recoup previously invested time and resources from existing systems, or invest again in a newer, more flexible version of said system. Therefore, the questions this project aims to answer are whether sufficient tools exist to facilitate code migration, whether there are standard\cite{Almonaies2010} (or at least widely accepted) methodologies in place for doing so, and whether such migrations turn out to be genuinely beneficial for the related parties.
+\IEEEPARstart{F}{or} at least forty years, mainframe computing has been the backbone of technological industry, to a greater or lesser extent. Despite having fallen out of favour in more recent years, in deference to the modern client-server style of computational interaction, mainframe software still underpins a vast amount of modern systems. There were an estimated 200 billion lines of COBOL in use in 2009\footnote{\url{http://fcw.com/articles/2009/07/13/tech-cobol-turns-50.aspx}}, with no indication of a decline in its use. However, COBOL is widely considered to be a dead language, and the fact that young computer scientists are taught languages such as Java and C++ means that many are unwilling to learn older languages such as COBOL or PL/I. Those developers who do know the languages required to maintain legacy mainframe systems are rapidly reaching the age of retirement and leaving the industry, making the continued use of mainframe systems in their current form impractical, or eventually even impossible.
 
-\section{Problem background}
-\label{sec:background}
+One of the major challenges in redevelopment is noted by Sneed\cite{Sneed2011} in that, when replacing an application with which users have grown familiar, they expect the exact same functionality and features (and potentially new features on top of those). Because of this, he says, ``it is much more difficult to replace an existing application than it is to develop one from scratch''\cite{Sneed2011}. Unfortunately, there is often a lack of resources (monetary and otherwise) available for redevelopment efforts. A 1996 case study\cite{Duncan1996} estimated that the cost of redeveloping the client's existing systems from scratch would cost approximately \$24 million, over four years (with twenty staff), totalling approximately ``100 person years of effort''\cite{Duncan1996}. It is therefore evident that there is a need for a means by which to ease the modernisation of legacy systems, without incurring unfeasibly large costs to the maintainers of said systems.
 
-\subsection{Differences between mainframe and modern system architectures}
-\label{subsec:differences}
+This paper will discuss the current available approaches to modernisation in \autoref{sec:approaches}, the issues which must still be addressed in the field in \autoref{sec:issues}, and draw a conclusion  in \autoref{sec:conclusion}.
 
-\subsection{Factors prompting/necessitating migration}
-\label{subsec:factors}
-
-\subsection{Example case studies}
-\label{subsec:examples}
-
-\section{Approaches to system migration}
+\section{Approaches to modernisation}
 \label{sec:approaches}
 
-\subsection{End-system structures}
-\label{subsec:structures}
+Almonaies et al.\cite{Almonaies2010} suggest four main approaches towards the modernisation of legacy systems:
+\begin{itemize}
+\item\textbf{Replacement}, in which one either rewrites existing applications in a modern language and style, or replaces them altogether (often ``with an off the shelf product''\cite{Almonaies2010}).
+\item\textbf{Reengineering}, in which reverse-engineering is used to add modern functionality into the legacy systems themselves.
+\item\textbf{Wrapping}, in which an interface is developed to encapsulate the legacy components so that they may be accessed as services from other components.
+\item\textbf{Migration}, in which the legacy system is transitioned into a new environment ``while preserving the original system\'s data and functionality''\cite{Almonaies2010}.
+\end{itemize}
 
-\subsubsection{Service-Oriented Architectures}
-\label{subsubsec:soa}
+Sneed\cite{Sneed2009} discusses this in terms of migration versus integration, where migration involves the actual transferral and/or transformation of code and components into a new environment. Integration instead refers to remotely accessing components from the new environment, without transitioning existing components into it.
 
-\subsubsection{Object-Oriented Platforms}
-\label{subsubsec:oop}
+As previously noted in \ref{sec:introduction}, replacement is potentially either prohibitively expensive\cite{Duncan1996} or fails due to difficulties users experience in adopting the new software\cite{Sneed2011}. This is not to say it is never a practical option; for smaller-scale applications, replacement may well be the most cost-effective solution after analysis. For the most part, however, existing literature deals with migration\cite{Aversano2001,Bodhuin2002,Canfora2006,Canfora2000,Canfora2008,Lucia1997,Lewis2006,Sneed2011,Sneed2008,Sneed2009,Sneed2013,Wu2005,Sneed1996,Duncan1996}, with elements of wrapping\cite{Chiang2001,Canfora2008,Sneed1996}. Reengineering is not widely discussed as a potential solution.
+
+\subsection{Service-Oriented Architectures}
+\label{subsec:soa}
+The most popular architecture to which legacy systems are migrated is that of a \textbf{Service-Oriented Architecture} (SOA)\cite{Sneed2008,Almonaies2010,Koschel2009,Canfora2006,Sneed2009,Canfora2008}. A service is defined by Perrey and Lycett\cite{Perrey2003} as ``the boundary between a consumer understandable value proposition and a technical implementation''. That is to say, it provides an interface between an agent and some functionality to allow for interaction without necessitating a deep understanding of underlying code. SOA is, therefore, a design pattern based on the interaction between these services.
+
+Some of the advantages of SOA for the purposes of migrating legacy systems are its flexibility, reusability and abstraction\cite{Almonaies2010}. As Aversano et al. note\cite{Aversano2001}, the mainframe systems were largely built before the internet became prevalent, using a centralised architecture to which a limited number of trusted users would connect. In the modern world, systems are accessed far more widely (e.g. through the internet), by a large number of users, and therefore the architecture must evolve accordingly.
 
 \subsection{Tools for code analysis}
 \label{subsec:toolsanalysis}
+One of the main tasks in migrating systems is to analyse code for elements which can be extracted and encapsulated, as well as judging the feasibility of migrating a certain piece of code. This would be prohibitively complex (and therefore time-consuming and costly) for a human to perform manually, so tools have been developed to do so automatically (as far as possible).
 
-\subsubsection{SoftAudit and complexity metrics}
-\label{subsubsec:softaudit}
-
-\subsubsection{COBAudit}
-\label{subsubsec:cobaudit}
+Sneed\cite{Sneed2009} uses the \textbf{COBAudit} tool to assess a large volume of programs in his pilot project. This took ``56 different size measurements''\cite{Sneed2009} from each program, including lines of code and number of data structures. From these, eight metrics were used to determine the programs' overall complexities (as discussed by Sneed in a 1995 paper\cite{Sneed1995}). These complexity measurements are then normalised using \textbf{SoftAudit}, with values above 0.5 indicating high complexity, and those below indicating low complexity. Any values over 0.8 can be considered to indicate extreme complexity.
 
 \subsection{Tools for migration}
 \label{subsec:toolsmigration}
@@ -149,13 +147,13 @@ The abstract goes here.
 % use section* for acknowledgement
 \ifCLASSOPTIONcompsoc
   % The Computer Society usually uses the plural form
-  %\section*{Acknowledgments}
+  \section*{Acknowledgements}
 \else
   % regular IEEE prefers the singular form
-  \section*{Acknowledgment}
+  \section*{Acknowledgement}
 \fi
 
-%The authors would like to thank...
+The author would like to thank Prof. Michael Butler for his supervision during the writing of this paper.
 
 
 \ifCLASSOPTIONcaptionsoff
