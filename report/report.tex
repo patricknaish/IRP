@@ -13,6 +13,7 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage[noadjust]{cite}
+\usepackage{todonotes}
 
 % correct bad hyphenation here
 %\hyphenation{op-tical net-works semi-conduc-tor}
@@ -26,7 +27,7 @@
 
 \IEEEcompsoctitleabstractindextext{%
 \begin{abstract}
-The abstract goes here.
+For at least forty years, mainframe computing has been the backbone of technological industry, to a greater or lesser extent. Modernising many of the systems developed on mainframes and other legacy platforms has been a priority for the industry in recent years, as the developers who once maintained those systems have retired, or soon will. This paper explores the options available for updating these legacy systems, and how appropriate and effective these various options are to a company. A comparison is drawn between the various available approaches, to illustrate the breadth of options available and their aptness for particular applications.
 \end{abstract}}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -43,7 +44,7 @@ The abstract goes here.
 \section{Introduction}
 \label{sec:introduction}
 
-\IEEEPARstart{F}{or} at least forty years, mainframe computing has been the backbone of technological industry, to a greater or lesser extent. Despite having fallen out of favour in more recent years, in deference to the modern client-server style of computational interaction, mainframe software still underpins a vast amount of modern systems. There were an estimated 200 billion lines of COBOL in use in 2009\footnote{\url{http://fcw.com/articles/2009/07/13/tech-cobol-turns-50.aspx}}, with no indication of a decline in its use. However, COBOL is widely considered to be a dead language, and the fact that young computer scientists are taught languages such as Java and C++ means that many are unwilling to learn older languages such as COBOL or PL/I. Those developers who do know the languages required to maintain legacy mainframe systems are rapidly reaching the age of retirement and leaving the industry, making the continued use of mainframe systems in their current form impractical, or eventually even impossible.
+\IEEEPARstart{F}{or} at least forty years, mainframe computing has been the backbone of technological industry, to a greater or lesser extent. Despite having fallen out of favour in more recent years, in deference to the modern client-server style of computational interaction, mainframe software still underpins a vast amount of modern systems. There were an estimated 200 billion lines of COBOL in use in 2009\footnote{\url{http://fcw.com/articles/2009/07/13/tech-cobol-turns-50.aspx}}, with no indication of a decline in its use. However, COBOL is widely considered to be a dead language, and the fact that young computer scientists are taught languages such as Java\cite{Sneed2013} and C++ means that many are unwilling to learn older languages such as COBOL or PL/I. Those developers who do know the languages required to maintain legacy mainframe systems are rapidly reaching the age of retirement and leaving the industry, making the continued use of mainframe systems in their current form impractical, or eventually even impossible.
 
 One of the major challenges in redevelopment is noted by Sneed\cite{Sneed2011} in that, when replacing an application with which users have grown familiar, they expect the exact same functionality and features (and potentially new features on top of those). Because of this, he says, ``...it is much more difficult to replace an existing application than it is to develop one from scratch.''\cite{Sneed2011}. Unfortunately, there is often a lack of resources (monetary and otherwise) available for redevelopment efforts. A 1996 case study\cite{Duncan1996} estimated that the cost of redeveloping the client's existing systems from scratch would cost approximately \$24 million, over four years (with twenty staff), totalling approximately ``...100 person years of effort...''\cite{Duncan1996}. It is therefore evident that there is a need for a means by which to ease the modernisation of legacy systems, without incurring unfeasibly large costs to the maintainers of said systems.
 
@@ -62,9 +63,9 @@ Almonaies et al.\cite{Almonaies2010} suggest four main approaches towards the mo
 
 Sneed\cite{Sneed2009} discusses this in terms of migration versus integration, where migration involves the actual transferral and/or transformation of code and components into a new environment. Integration instead refers to remotely accessing components from the new environment, without transitioning existing components into it.
 
-As previously noted in \ref{sec:introduction}, replacement is potentially either prohibitively expensive\cite{Duncan1996} or fails due to difficulties users experience in adopting the new software\cite{Sneed2011}. This is not to say it is never a practical option; for smaller-scale applications, replacement may well be the most cost-effective solution after analysis. For the most part, however, existing literature deals with migration\cite{Aversano2001,Bodhuin2002,Canfora2006,Canfora2000,Canfora2008,Lucia1997,Lewis2006,Sneed2011,Sneed2008,Sneed2009,Sneed2013,Wu2005,Sneed1996,Duncan1996}, with elements of wrapping\cite{Chiang2001,Canfora2008,Sneed1996}.
+As previously noted in \ref{sec:introduction}, replacement is potentially either prohibitively expensive\cite{Duncan1996} or fails due to difficulties users experience in adopting the new software\cite{Sneed2011}. This is not to say it is never a practical option; for smaller-scale applications, replacement may well be the most cost-effective solution after analysis. For the most part, however, existing literature deals with migration\cite{Aversano2001,Bodhuin2002,Canfora2006,Canfora2000,Canfora2008,Lucia1997,Lewis2006,Sneed2011,Sneed2008,Sneed2009,Sneed2013,Wu2005,Sneed1996,Duncan1996}, with elements of wrapping\cite{Chiang2001,Canfora2008,Sneed1996,Sneed2003}.
 
-The CelLEST project\cite{Stroulia2002} is discussed in the context of reengineering, although this still makes heavy use of wrapping.
+The CelLEST project\cite{Stroulia2002} is discussed in the context of reengineering, although this still makes heavy use of wrapping. Distante et al.\cite{Distante2006} also discuss UWA techniques for reengineering for the web.
 
 \subsection{Service-Oriented Architectures}
 \label{subsec:soa}
@@ -78,7 +79,7 @@ One of the main tasks in migrating systems is to analyse code for elements which
 
 Sneed\cite{Sneed2009} uses the \textbf{COBAudit} tool to assess a large volume of programs in his pilot project. This took ``...56 different size measurements...''\cite{Sneed2009} from each program, including lines of code and number of data structures. From these, eight metrics were used to determine the programs' overall complexities (as discussed by Sneed in a 1995 paper\cite{Sneed1995}). These complexity measurements are then normalised using \textbf{SoftAudit}, with values above 0.5 indicating high complexity, and those below indicating low complexity. Any values over 0.8 can be considered to indicate extreme complexity. From the normalised results, it is then possible to select programs which are suitable for reuse, as well as identify the sections of them for which this will be most straightforward or difficult.
 
-Lewis et al.\cite{Lewis2005a} use the \textbf{Understand for C++}\footnote{\url{http://www.scitools.com/}} to extract both a static analysis of a C++ application, and metrics for assessing the ease of migration. They then use the \textbf{Architecture Reconstruction and Mining} (ARMIN)\cite{O'Brien2005} tool to attempt to reconstruct the architecture of analysed programs, in order to find inter-service dependencies (as well as issues with these dependencies in their current form). This analysis is then used to create a migration strategy moving forward.
+Lewis et al.\cite{Lewis2005a} use the \textbf{Understand for C++}\footnote{\url{http://www.scitools.com/}} tool to extract both a static analysis of a C++ application, and metrics for assessing the ease of migration. They then use the \textbf{Architecture Reconstruction and Mining} (ARMIN)\cite{O'Brien2005} tool to attempt to reconstruct the architecture of analysed programs, in order to find inter-service dependencies (as well as issues with these dependencies in their current form). This analysis is then used to create a migration strategy moving forward.
 
 \subsection{Tools for migration}
 \label{subsec:toolsmigration}
@@ -86,7 +87,7 @@ Once reusable code has been identified, there are tools available for facilitati
 
 \subsubsection{COBStrip}
 \label{subsubsec:cobstrip}
-This tool uses code slicing to decompose programs. This concept is discussed in some detail by Weiser\cite{Weiser1984}, and applied practically in the context of migration by Sneed\cite{Sneed2009,Sneed2008}. Its purpose is to separate out various `slices' from a program, where each slice represents a path through the program that will perform a given function of the original code. These slices are used to ``...generate multiple instances of the same program...''\cite{Sneed2009,Sneed2008}, which can then be run as individual web services. The tool requires some user interaction, but reduces the workload of slicing significantly.
+This tool uses code slicing to decompose programs\cite{Canfora2000}. This concept is discussed in some detail by Weiser\cite{Weiser1984}, and applied practically in the context of migration by Sneed\cite{Sneed2009,Sneed2008}. Its purpose is to separate out various `slices' from a program, where each slice represents a path through the program that will perform a given function of the original code. These slices are used to ``...generate multiple instances of the same program...''\cite{Sneed2009,Sneed2008}, which can then be run as individual web services. The tool requires some user interaction, but reduces the workload of slicing significantly.
 
 \subsubsection{COBWrap}
 \label{subsubsec:cobwrap}
@@ -98,6 +99,7 @@ This tool uses the wrapped programs generated by \textbf{COBWrap}, and creates \
 
 \subsection{Techniques and approaches}
 \label{subsec:techniques}
+Due to the maturity of both mainframe systems and the more modern SOA, there has been a lot of time dedicated to exploring techniques for applying modernisation tools and practices to real-world systems. Some of these are purely theoretical, whereas others have been tested in
 
 \subsubsection{Service-Oriented Migration and Reuse Technique (SMART)}
 \label{subsubsec:smart}
@@ -107,37 +109,69 @@ Part of this process may also involve architecture reconstruction, using a tool 
 
 \subsubsection{Service-Oriented Software Reengineering Methodology (SoSR)}
 \label{subsubsec:sosr}
+SoSR was proposed by Chung et al. as an ``...architecture-centric, service-oriented, role-specific and model-driven''\cite{Chung2007} methodology for software reengineering. It uses a `4+1 view model', where a system is considered to be composed of four primary views:
+\begin{itemize}
+\item \textbf{Design view}
+\item \textbf{Implementation view}
+\item \textbf{Process view}
+\item \textbf{Deployment view}
+\end{itemize}
+which share a single \textbf{use case view}. The use case view represents the software engineering aspects of the system architecture, such as user requirements; the four primary views represent the logical and physical, static and dynamic aspects of the overall system. It also makes use of \textbf{Responsible, Accountable, Consulting and Informed} (RACI) charts\footnote{\url{http://racichart.org/}} to show the tasks required for each role in the system.
 
 \subsubsection{Ubiquitous Web Applications Design Framework (UWA)}
 \label{subsubsec:uwa}
+UWA\cite{UWAConsortium2002} and the \textbf{Extended UWA Transaction Design Model} (UWAT+)\cite{Distante2005} are discussed by Distante et al.\cite{Distante2006} as a means to reengineer legacy systems. As with \textbf{SoSR} (\autoref{subsubsec:sosr}) and \textbf{SMART} (\autoref{subsubsec:smart}), this deals not only with the technical aspect of system modernisation, but also the software engineering aspects such as requirement gathering. UWAT+ has the concept of ``...Web transaction[s]...''\cite{Distante2006}, which are a set of user interactions required to complete a given task.
+
+This relies fairly heavily on reverse-engineering to generate `meta-models', which can then be used to generate more concrete models in turn. From these, a web version of the original system can be engineered.
 
 \subsubsection{CelLEST}
 \label{subsubsec:cellest}
-The CelLEST project\footnote{\url{http://webdocs.cs.ualberta.ca/~stroulia/CELLEST/new/}}
+The CelLEST project\footnote{\url{http://webdocs.cs.ualberta.ca/~stroulia/CELLEST/new/}} deals mostly with front-end interfaces, and user interactions with them, for a given system. Stroulia et al.\cite{Stroulia2002} discuss that, as opposed to techniques based on gaining an understanding of the original application's architecture through code analysis, CelLEST constructs a model of the behaviour of the legacy system through analysing user-interface interaction paths. This model is then used as an interface between users and the legacy application (i.e. wrapping), without modifying the original code.
+
+Because of the nature of the analysis, this requires a large amount of user interaction, ideally by ``an expert user of the legacy application''\cite{Stroulia2002}. However, it does not require the full software-engineering processes that are used by techniques such as \textbf{SMART} (\autoref{subsubsec:smart}). Stroulia et al. note that this technique cannot be used for maintenance, as it does not modify the underlying code, but is a means of providing access to said code through a modern interface.
+
+\subsubsection{Finite State Automata}
+Canfora et al.\cite{Canfora2006,Canfora2008} discuss the usage of a finite state automata to model the interactions between a user and the legacy system, on the basis that a traditional purely `black-box' approach to wrapping will not be aware of the current state of the legacy system when executing a command, which may lead to unknown behaviour (a problem exacerbated by the scaling of the number of users simultaneously accessing a system, from the mainframe to SOA). Thus, the automaton for a given system will keep track of the current state of the underlying system, and model the currently available I/O operations through a wrapper layer. Paths through the automaton can be identified in a similar manner to code slicing (\autoref{subsubsec:cobstrip}), and used to assess whether all the scenarios for a given operation have been accounted for.
 
 \subsection{Comparison of approaches}
 \label{subsec:comparison}
 
+\todo[inline]{Find best approach to comparison, discuss case studies}
+
 \section{Issues which must be addressed}
 \label{sec:issues}
+Even with the currently available tools and techniques, the problem of modernising legacy systems is far from solved. The main issues which present themselves are those discussed below:
+\begin{itemize}
+\item\textbf{Cost-effectiveness}
+\item\textbf{Maintainability}
+\item\textbf{Risk}
+\item\textbf{Automation}
+\item\textbf{Testing}
+\end{itemize}
+as well as more human issues such as user-acceptance and the necessity for retraining. It is also important to consider that, in a real-world business scenario, deployment of new systems must be approached gradually in order to not disrupt current operation\cite{Sneed2008,Duncan1996,Almonaies2010}. This itself adds another dimension of complexity to the entire effort of modernisation.
 
 \subsection{Cost-effectiveness}
 \label{subsec:costeffectiveness}
+The best example of cost-effective migration was discussed in \autoref{sec:introduction}, with the case study from Duncan et al.\cite{Duncan1996} showing an estimated \$24 million cost for redevelopment, as opposed to a \$4.8 million cost for migration (including hardware, software, training and operating costs) over three years. Additionally, there was a benefit to the company of \$9.45 million over that same three year period, due to the improvements made during modernisation.
+
+Although this was a success, the lower cost was due to the overall complexity of the systems that required modernisation. With a less complex legacy system, the effort required to redevelop may be significantly less than the effort required to migrate or reengineer. This falls, therefore, to analysts to determine the most appropriate course of action -- but even this brings its own expenses and consumes resources.
 
 \subsection{Maintainability}
 \label{subsec:maintainability}
+While some of the approaches do not even attempt to deal with the issue of maintainability\cite{Stroulia2002}, most make some attempt to ease further development. This is achieved by updating the original code and wrapping it in a modern language, transforming the original code into a more modern language, or some combination of the two. The rationale is that younger computer scientists and software engineers will be more familiar with languages such as Java\cite{Sneed2013}, and therefore will be able to continue maintaining the software moving forwards.
 
-\subsection{Risk}
-\label{subsec:risk}
+This does not deal with the fact that design patterns have changed significantly even over the last twenty years, let alone forty, and modernisation is something of a stopgap solution to updating systems. It could be considered that the entire exercise is striking a balance between cost and maintainability, in that a larger expenditure will most likely leave you with a more modern and maintainable solution. Obviously this is not always feasible or even appropriate for a smaller business, but it is important to remember that no system can be maintained indefinitely while competing successfully against more modern alternatives. It may also be the case that redeveloped software will better suit an organisation's needs.
+
+Maintaining a system without a deep understanding of it also presents some issues. Lack of familiarity introduces more complexity into maintaining it, especially when one is now required to not only understand the modern and legacy code (where it remains), but also the interactions between them. However, a similar argument for lack of familiarity could be made against entirely replacing an existing system\cite{Almonaies2010}.
 
 \subsection{Automation}
 \label{subsec:automation}
-
-\subsection{Testing}
-\label{subsec:testing}
+The tools discussed in \autoref{subsec:toolsmigration} and \autoref{subsec:toolsanalysis} are a step towards automating the modernisation process, thereby reducing the costs required to do so. However, due to the varied and complex nature of legacy systems, it is extremely difficult to fully automate many steps. Sneed has made many steps towards automating the process as far as possible for certain languages\cite{Sneed2013,Sneed2011,Sneed2008,Sneed2009,Sneed1996,Sneed2001}, as have other researchers\cite{Deursen1998,Aversano2001,Chiang2001,Wu2005,O'Brien2005,Distante2006}, but the problem is far from solved. It may be the case that this is an issue which may never be fully overcome, as there is an almost infinite number of potential edge cases for any software, but it does at least pave the way for automation as far as possible.
 
 \section{Conclusion}
 \label{sec:conclusion}
+
+\todo[inline]{Conclusion}
 
 \appendices
 %\section{Proof of the First Zonklar Equation}
