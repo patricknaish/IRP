@@ -16,7 +16,7 @@
 \usepackage{todonotes}
 
 % correct bad hyphenation here
-%\hyphenation{op-tical net-works semi-conduc-tor}
+\hyphenation{ana-lysis}
 
 
 \begin{document}
@@ -27,7 +27,7 @@
 
 \IEEEcompsoctitleabstractindextext{%
 \begin{abstract}
-For at least forty years, mainframe computing has been the backbone of technological industry, to a greater or lesser extent. Modernising many of the systems developed on mainframes and other legacy platforms has been a priority for the industry in recent years, as the developers who once maintained those systems have retired, or soon will. This paper explores the options available for updating these legacy systems, and how appropriate and effective these various options are to a company. A comparison is drawn between the various available approaches, to illustrate the breadth of options available and their aptness for particular applications.
+System modernisation has been a major concern for many businesses since the start of the decline in mainframe engineers. Those who were once responsible for the maintenance of complex and crucial large-scale systems have rapidly started to reach the age of retirement, and the majority new engineers entering the workforce do not have the knowledge of legacy technologies necessary to maintain the systems in their current state. This paper explores the problem behind system modernisation, discussing various approaches, tools, and processes which have been developed to solve it. After presenting a comparison between these, a conclusion is drawn that the next step in the field must be to automate the analysis of systems in order to select an economical and appropriate approach for a given business.
 \end{abstract}}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -44,9 +44,9 @@ For at least forty years, mainframe computing has been the backbone of technolog
 \section{Introduction}
 \label{sec:introduction}
 
-\IEEEPARstart{F}{or} at least forty years, mainframe computing has been the backbone of technological industry, to a greater or lesser extent. Despite having fallen out of favour in more recent years, in deference to the modern client-server style of computational interaction, mainframe software still underpins a vast amount of modern systems. There were an estimated 200 billion lines of COBOL in use in 2008 \cite{Datamonitor2008}, with no indication of a decline in its use. However, COBOL is widely considered to be a dead language, and the fact that young computer scientists are taught languages such as Java \cite{Sneed2013} and C++ means that many are unwilling to learn older languages such as COBOL or PL/I. Those developers who do know the languages required to maintain legacy mainframe systems are rapidly reaching the age of retirement and leaving the industry, making the continued use of mainframe systems in their current form impractical, or eventually even impossible.
+\IEEEPARstart{F}{or} at least forty years, mainframe computing has been the backbone of technological industry, to a greater or lesser extent. Despite having fallen out of favour in more recent years, in deference to the modern client-server style of computational interaction, mainframe software still underpins a vast amount of modern systems. There were an estimated 200 billion lines of COBOL in use in 2008 \cite{Datamonitor2008}, with no indication of a decline in its use. However, COBOL is widely considered to be a dead language, and the fact that young computer scientists are primarily taught languages such as Java \cite{Sneed2013} and Python means that many are unwilling to learn older languages such as COBOL or PL/I. Those developers who do know the languages required to maintain legacy mainframe systems are rapidly reaching the age of retirement and leaving the industry, making the continued use of mainframe systems in their current form impractical, or eventually even impossible.
 
-One of the major challenges in redevelopment is noted by Sneed \cite{Sneed2011} in that, when replacing an application with which users have grown familiar, they expect the exact same functionality and features (and potentially new features on top of those). Because of this, he says, ``...it is much more difficult to replace an existing application than it is to develop one from scratch.'' \cite{Sneed2011}. Unfortunately, there is often a lack of resources (monetary and otherwise) available for redevelopment efforts. A 1996 case study \cite{Duncan1996} estimated that the cost of redeveloping the client's existing systems from scratch would cost approximately \$24 million, over four years (with twenty staff), totalling approximately ``...100 person years of effort...'' \cite{Duncan1996}. It is therefore evident that there is a need for a means by which to ease the modernisation of legacy systems, without incurring unfeasibly large costs to the maintainers of said systems.
+One of the major challenges in redevelopment is noted by Sneed \cite{Sneed2011} in that, when replacing an application with which users have grown familiar, they expect the exact same functionality and features (and potentially new features on top of those). Because of this, he says, ``...it is much more difficult to replace an existing application than it is to develop one from scratch.'' \cite{Sneed2011}. Unfortunately, there is often a lack of resources (monetary and otherwise) available for redevelopment efforts. A 1996 case study \cite{Duncan1996} estimated that the cost of redeveloping the client's existing systems from scratch would cost approximately \$24 million, over four years (with twenty staff), totalling approximately ``...100 person years of effort...'' \cite{Duncan1996}. It is therefore evident that there is a need for a means by which to ease the effort of modernisation of legacy systems, without incurring unfeasibly large costs to the maintainers of said systems.
 
 This paper will discuss the current available approaches to modernisation in \autoref{sec:approaches}, the issues which must still be addressed in the field in \autoref{sec:issues}, and draw a conclusion  in \autoref{sec:conclusion}.
 
@@ -69,7 +69,7 @@ The CelLEST project \cite{Stroulia2002} is discussed in the context of reenginee
 
 \subsection{Service-Oriented Architectures}
 \label{subsec:soa}
-The most popular architecture to which legacy systems are migrated is that of a Service-Oriented Architecture (SOA) \cite{Sneed2008,Almonaies2010,Koschel2009,Canfora2006,Sneed2009,Canfora2008}. A service is defined by Perrey and Lycett \cite{Perrey2003} as ``...the boundary between a consumer understandable value proposition and a technical implementation...''. That is to say, it provides an interface between an agent and some functionality to allow for interaction without necessitating a deep understanding of underlying code. SOA is, therefore, a design pattern based on the interaction between these services.
+The most popular architecture to which legacy systems are migrated is that of a Service-Oriented Architecture (SOA) \cite{Sneed2008,Almonaies2010,Koschel2009,Canfora2006,Sneed2009,Canfora2008}. A service is defined by Perrey and Lycett \cite{Perrey2003} as ``...the boundary between a consumer understandable value proposition and a technical implementation...''. That is to say, it provides an interface between an agent and a layer providing functionality to allow for interaction, without necessitating a deep understanding of underlying code. SOA is, therefore, a design pattern based on the interaction between these services.
 
 Some of the advantages of SOA for the purposes of migrating legacy systems are its flexibility, reusability and abstraction \cite{Almonaies2010}. As Aversano et al. note \cite{Aversano2001}, the mainframe systems were largely built before the internet became prevalent, using a centralised architecture. The need for the benefits provided by SOAs has lead to an effort to maintain the value of investments in traditional system architectures, while still providing the modern interaction patterns one would expect. Accommodating a new architecture on the legacy systems themselves would involve a significant time and effort investment, and may not be feasible without comprehensive documentation of the existing system.
 
@@ -83,7 +83,7 @@ Lewis et al. \cite{Lewis2005a} use the Understand for C++ tool to extract both a
 
 \subsection{Tools for migration}
 \label{subsec:toolsmigration}
-Once reusable code has been identified, there are tools available for facilitating migration. One set of these tools is COB2WEB, created by Sneed \cite{Sneed2008}, comprising COBStrip, COBWrap, and COBLink, as well as the COBAudit tool mentioned in \autoref{subsec:toolsanalysis}.
+Once reusable code has been identified, there are various tools available for facilitating migration. One set of these tools is COB2WEB, created by Sneed \cite{Sneed2008}, comprising COBStrip, COBWrap, and COBLink, as well as the COBAudit tool mentioned in \autoref{subsec:toolsanalysis}.
 
 \subsubsection{COBStrip}
 \label{subsubsec:cobstrip}
@@ -103,7 +103,7 @@ Due to the maturity of both mainframe systems and the more modern SOA, there has
 
 \subsubsection{Service-Oriented Migration and Reuse Technique (SMART)}
 \label{subsubsec:smart}
-SMART was described by Lewis et al. as a ``...process for evaluating legacy components for their potential to become services...'' \cite{Lewis2005,Lewis2005a}. As opposed to the tools mentioned in \autoref{subsec:toolsanalysis} and \autoref{subsec:toolsmigration}, this is a set of in-depth analyses of various aspects of the legacy system, target environment, user base and required effort. This is something more of a software engineering approach than a computer science one, as it involves considering the business as a whole and developing strategies, rather than only considering the technical challenge involved. This, of course, leads to a larger amount of work needing to be performed initially, but creates a more cohesive strategy for the overall migration process.
+SMART was described by Lewis et al. as a ``...process for evaluating legacy components for their potential to become services...'' \cite{Lewis2005,Lewis2005a}. As opposed to the tools mentioned in \autoref{subsec:toolsanalysis} and \autoref{subsec:toolsmigration}, this is a set of in-depth analyses of various aspects of the legacy system, target environment, user base, and effort requirements. This is something more of a software engineering approach than a computer science one, as it involves considering the business as a whole and developing strategies, rather than only considering the technical challenge involved. This, of course, leads to a larger amount of work needing to be performed initially, but creates a more cohesive strategy for the overall migration process.
 
 Part of this process may also involve architecture reconstruction, using a tool such as ARMIN (previously mentioned in \autoref{subsec:toolsanalysis}). This allows for analysis of Rigi Standard Format (RSF) \cite{Kienle2010} files, containing metadata extracted from source files in various languages \cite{O'Brien2005}. These analyses are used to create models and abstractions which, in turn, ``...produce higher-levels[\textit{sic}] models and views...'' \cite{O'Brien2005}. Eventually, through this process, the ``...desired set of views is produced.'' \cite{O'Brien2005} An evident use of this is to separate out a legacy application into Model--View--Controller (MVC) layers, as additionally discussed by Bodhuin et al. \cite{Bodhuin2002}.
 
@@ -116,7 +116,7 @@ SoSR was proposed by Chung et al. as an ``...architecture-centric, service-orien
 \item Process view
 \item Deployment view
 \end{itemize}
-which share a single use case view. The use case view represents the software engineering aspects of the system architecture, such as user requirements; the four primary views represent the logical and physical, static and dynamic aspects of the overall system. It also makes use of Responsible, Accountable, Consulting and Informed (RACI) charts \cite{Smith2005} to show the tasks required for each role in the system.
+which share a single use case view. The use case view represents the software engineering aspects of the system architecture, such as user requirements; the four primary views represent the logical, physical, static, and dynamic aspects of the overall system. It also makes use of Responsible, Accountable, Consulting, and Informed (RACI) charts \cite{Smith2005} to show the tasks required for each role in the system.
 
 \subsubsection{Ubiquitous Web Applications Design Framework (UWA)}
 \label{subsubsec:uwa}
@@ -124,11 +124,11 @@ UWA \cite{UWAConsortium2002} and the Extended UWA Transaction Design Model (UWAT
 
 This relies fairly heavily on reverse-engineering to generate `meta-models', which can then be used to generate more concrete models in turn. From these, a web version of the original system can be engineered.
 
-A case study of the technique in use can be seen in \cite{Distante:2006:RLA:1134285.1134353}.
+A case study of the technique in use can be seen in the report by Distante et al. \cite{Distante:2006:RLA:1134285.1134353}.
 
 \subsubsection{CelLEST}
 \label{subsubsec:cellest}
-The CelLEST project \cite{Stroulia2000} deals mostly with front-end interfaces, and user interactions with them, for a given system. Stroulia et al. \cite{Stroulia2002} discuss that, as opposed to techniques based on gaining an understanding of the original application's architecture through code analysis, CelLEST constructs a model of the behaviour of the legacy system through analysing user-interface interaction paths. This model is then used as an interface between users and the legacy application (i.e. wrapping), without modifying the original code.
+The CelLEST project \cite{Stroulia2000} deals mostly with front-end interfaces, and user interactions with them, for a given system. Stroulia et al. \cite{Stroulia2002} discuss that, as opposed to techniques based on gaining an understanding of the original application's architecture through code analysis, CelLEST constructs a model of the behaviour of the legacy system through analysing user-interface interaction paths. This model is then used as an interface between users and the legacy application (i.e. wrapping legacy components), without modifying the original code.
 
 Because of the nature of the analysis, this requires a large amount of user interaction, ideally by ``an expert user of the legacy application'' \cite{Stroulia2002}. However, it does not require the full software-engineering processes that are used by techniques such as SMART (\autoref{subsubsec:smart}). Stroulia et al. note that this technique cannot be used for maintenance, as it does not modify the underlying code, but is a means of providing access to said code through a modern interface.
 
@@ -149,7 +149,7 @@ Canfora et al. \cite{Canfora2006,Canfora2008} discuss the usage of FSA to model 
   \textbf{Approach} & \textbf{Cost} & \textbf{Effort} \\ \hline
   Replacement & High & Moderate \\ \hline
   Reengineering & Moderate & High \\ \hline
-  Wrapping & Low & Moderate \\ \hline
+  Wrapping & Low & Low \\ \hline
   Migrating & Moderate/High & Moderate \\ \hline
 \end{tabular}
 \end{table}
@@ -186,7 +186,7 @@ Canfora et al. \cite{Canfora2006,Canfora2008} discuss the usage of FSA to model 
 \end{tabular}
 \end{table}
 
-These do not represent an exhaustive list of the available tools and techniques, but those which are most well-documented. Additionally, most of these techniques (along with the required tools) have been applied to real-world problems, except for SoSR.
+These do not represent an exhaustive list of the available tools and techniques, but those which are most well-documented. Additionally, most of these techniques (along with the required tools) have been applied to real-world problems, except for SoSR. It is important to note that the cost and effort measures for the approaches to modernisation are exemplar of those a typical mid-sized enterprise might find they incur. Additionally, the effort of replacement depends on whether the system is replaced by an in-house development team or using an off-the-shelf product.
 
 \section{Issues which must be addressed}
 \label{sec:issues}
@@ -194,11 +194,9 @@ Even with the currently available tools and techniques, the problem of modernisi
 \begin{itemize}
 \item Cost-effectiveness
 \item Maintainability
-\item Risk
 \item Automation
-\item Testing
 \end{itemize}
-as well as more human issues such as user-acceptance and the necessity for retraining. It is also important to consider that, in a real-world business scenario, deployment of new systems must be approached gradually in order to not disrupt current operation \cite{Sneed2008,Duncan1996,Almonaies2010}. This itself adds another dimension of complexity to the entire effort of modernisation.
+as well as more human issues such as user-acceptance and the necessity for retraining. It is also important to consider that, in a real-world business scenario, deployment of new systems must be approached gradually in order to not disrupt current operation \cite{Sneed2008,Duncan1996,Almonaies2010}. This in and of itself adds another dimension of complexity to the entire effort of modernisation.
 
 \subsection{Cost-effectiveness}
 \label{subsec:costeffectiveness}
@@ -210,7 +208,7 @@ Although this was a success, the lower cost was due to the overall complexity of
 \label{subsec:maintainability}
 While some of the approaches do not even attempt to deal with the issue of maintainability \cite{Stroulia2002}, most make some attempt to ease further development. This is achieved by updating the original code and wrapping it in a modern language, transforming the original code into a more modern language, or some combination of the two. The rationale is that younger computer scientists and software engineers will be more familiar with languages such as Java \cite{Sneed2013}, and therefore will be able to continue maintaining the software moving forwards.
 
-This does not deal with the fact that design patterns have changed significantly even over the last twenty years, let alone forty, and modernisation is something of a stopgap solution to updating systems. It could be considered that the entire exercise is striking a balance between cost and maintainability, in that a larger expenditure will most likely leave you with a more modern and maintainable solution. Obviously this is not always feasible or even appropriate for a smaller business, but it is important to remember that no system can be maintained indefinitely while competing successfully against more modern alternatives. It may also be the case that redeveloped software will better suit an organisation's needs.
+This does not deal with the fact that design patterns have changed significantly even over the last twenty years, let alone forty, and modernisation is something of a stopgap solution to updating systems. It could be considered that the entire exercise is in striking a balance between cost and maintainability, in that a larger expenditure will most likely leave you with a more modern and maintainable solution. Obviously this is not always feasible or even appropriate for a smaller business, but it is important to remember that no system can be maintained indefinitely while competing successfully against more modern alternatives. It may also be the case that redeveloped software will better suit an organisation's needs.
 
 Maintaining a system without a deep understanding of it also presents some issues. Lack of familiarity introduces more complexity into maintaining it, especially when one is now required to not only understand the modern and legacy code (where it remains), but also the interactions between them. However, a similar argument for lack of familiarity could be made against entirely replacing an existing system \cite{Almonaies2010}.
 
@@ -220,8 +218,15 @@ The tools discussed in \autoref{subsec:toolsmigration} and \autoref{subsec:tools
 
 \section{Conclusion}
 \label{sec:conclusion}
+Having seen the available solutions to the problem of modernisation, and the available tools and techniques, it becomes apparent that despite the breadth of resources and knowledge there is no universally applicable process available. Whereas for one business, reengineering a system may be prohibitively expensive and time-consuming such that the preferred solution is to wrap existing systems and gradually phase them out, another may find that wrapping is too transitory to be cost-effective, and that they have the resources (for example, original system design documents) to make reengineering viable.
 
+The challenge that must be overcome in order to effectively utilise appropriate solutions for businesses is, therefore, that of efficiently determining which approach will be most feasible -- and, indeed, whether it would be more economical to continue to use existing systems until the point where it is demonstrably impacting the business, then replacing it entirely rather than attempt modernisation. While some of the processes go some way toward answering this problem, as mentioned in \autoref{sec:issues} there are issues of both cost and a lack of existing automation in any available processes.
 
+If future work in the field strives to improve the power of tools and processes for selecting a modernisation strategy for a given system, reducing the need for human analysis, it will become significantly more economically viable to start the modernisation effort proper. Given the concerns addressed in \autoref{sec:introduction} adding a time pressure, and considering the quality of the tools for the actual modernisation processes available, a focus on developing low-effort means of analysis of businesses should be prioritised.
+
+It is also worth noting that, while there are some high-quality tools and processes available, they are often quite specialised to a purpose or language. It may therefore be worth exploring the creation of a more general tool (although ARMIN \cite{O'Brien2005} already accomplishes this to some degree, it is far from general-purpose). Making these tools more accessible to the layman would also lower training costs, although given the importance of the process this should not be at the expense of functionality.
+
+Overall, the work in the field has been progressing well, but requires a final layer of consideration before it is truly practical for an arbitrary business to make an informed decision on the best option for their circumstance. Once this is in place, the problem of modernisation of systems may be said to be at least somewhat solved.
 
 \appendices
 %\section{Proof of the First Zonklar Equation}
