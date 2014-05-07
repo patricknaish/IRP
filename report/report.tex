@@ -44,7 +44,7 @@ For at least forty years, mainframe computing has been the backbone of technolog
 \section{Introduction}
 \label{sec:introduction}
 
-\IEEEPARstart{F}{or} at least forty years, mainframe computing has been the backbone of technological industry, to a greater or lesser extent. Despite having fallen out of favour in more recent years, in deference to the modern client-server style of computational interaction, mainframe software still underpins a vast amount of modern systems. There were an estimated 200 billion lines of COBOL in use in 2009\footnote{\url{http://fcw.com/articles/2009/07/13/tech-cobol-turns-50.aspx}}, with no indication of a decline in its use. However, COBOL is widely considered to be a dead language, and the fact that young computer scientists are taught languages such as Java \cite{Sneed2013} and C++ means that many are unwilling to learn older languages such as COBOL or PL/I. Those developers who do know the languages required to maintain legacy mainframe systems are rapidly reaching the age of retirement and leaving the industry, making the continued use of mainframe systems in their current form impractical, or eventually even impossible.
+\IEEEPARstart{F}{or} at least forty years, mainframe computing has been the backbone of technological industry, to a greater or lesser extent. Despite having fallen out of favour in more recent years, in deference to the modern client-server style of computational interaction, mainframe software still underpins a vast amount of modern systems. There were an estimated 200 billion lines of COBOL in use in 2008 \cite{Datamonitor2008}, with no indication of a decline in its use. However, COBOL is widely considered to be a dead language, and the fact that young computer scientists are taught languages such as Java \cite{Sneed2013} and C++ means that many are unwilling to learn older languages such as COBOL or PL/I. Those developers who do know the languages required to maintain legacy mainframe systems are rapidly reaching the age of retirement and leaving the industry, making the continued use of mainframe systems in their current form impractical, or eventually even impossible.
 
 One of the major challenges in redevelopment is noted by Sneed \cite{Sneed2011} in that, when replacing an application with which users have grown familiar, they expect the exact same functionality and features (and potentially new features on top of those). Because of this, he says, ``...it is much more difficult to replace an existing application than it is to develop one from scratch.'' \cite{Sneed2011}. Unfortunately, there is often a lack of resources (monetary and otherwise) available for redevelopment efforts. A 1996 case study \cite{Duncan1996} estimated that the cost of redeveloping the client's existing systems from scratch would cost approximately \$24 million, over four years (with twenty staff), totalling approximately ``...100 person years of effort...'' \cite{Duncan1996}. It is therefore evident that there is a need for a means by which to ease the modernisation of legacy systems, without incurring unfeasibly large costs to the maintainers of said systems.
 
@@ -55,10 +55,10 @@ This paper will discuss the current available approaches to modernisation in \au
 
 Almonaies et al. \cite{Almonaies2010} suggest four main approaches towards the modernisation of legacy systems:
 \begin{itemize}
-\item\textbf{Replacement}, in which one either rewrites existing applications in a modern language and style, or replaces them altogether (often ``...with an off the shelf product...'' \cite{Almonaies2010}).
-\item\textbf{Reengineering}, in which reverse-engineering is used to add modern functionality into the legacy systems themselves.
-\item\textbf{Wrapping}, in which an interface is developed to encapsulate the legacy components so that they may be accessed as services from other components.
-\item\textbf{Migration}, in which the legacy system is transitioned into a new environment ``...while preserving the original system\'s data and functionality...'' \cite{Almonaies2010}.
+\item Replacement, in which one either rewrites existing applications in a modern language and style, or replaces them altogether (often ``...with an off the shelf product...'' \cite{Almonaies2010}).
+\item Reengineering, in which reverse-engineering is used to add modern functionality into the legacy systems themselves.
+\item Wrapping, in which an interface is developed to encapsulate the legacy components so that they may be accessed as services from other components.
+\item Migration, in which the legacy system is transitioned into a new environment ``...while preserving the original system\'s data and functionality...'' \cite{Almonaies2010}.
 \end{itemize}
 
 Sneed \cite{Sneed2009} discusses this in terms of migration versus integration, where migration involves the actual transferral and/or transformation of code and components into a new environment. Integration instead refers to remotely accessing components from the new environment, without transitioning existing components into it.
@@ -69,7 +69,7 @@ The CelLEST project \cite{Stroulia2002} is discussed in the context of reenginee
 
 \subsection{Service-Oriented Architectures}
 \label{subsec:soa}
-The most popular architecture to which legacy systems are migrated is that of a \textbf{Service-Oriented Architecture} (SOA) \cite{Sneed2008,Almonaies2010,Koschel2009,Canfora2006,Sneed2009,Canfora2008}. A service is defined by Perrey and Lycett \cite{Perrey2003} as ``...the boundary between a consumer understandable value proposition and a technical implementation...''. That is to say, it provides an interface between an agent and some functionality to allow for interaction without necessitating a deep understanding of underlying code. SOA is, therefore, a design pattern based on the interaction between these services.
+The most popular architecture to which legacy systems are migrated is that of a Service-Oriented Architecture (SOA) \cite{Sneed2008,Almonaies2010,Koschel2009,Canfora2006,Sneed2009,Canfora2008}. A service is defined by Perrey and Lycett \cite{Perrey2003} as ``...the boundary between a consumer understandable value proposition and a technical implementation...''. That is to say, it provides an interface between an agent and some functionality to allow for interaction without necessitating a deep understanding of underlying code. SOA is, therefore, a design pattern based on the interaction between these services.
 
 Some of the advantages of SOA for the purposes of migrating legacy systems are its flexibility, reusability and abstraction \cite{Almonaies2010}. As Aversano et al. note \cite{Aversano2001}, the mainframe systems were largely built before the internet became prevalent, using a centralised architecture to which a limited number of trusted users would connect. In the modern world, systems are accessed far more widely (e.g. through the internet), by a large number of users, and therefore the architecture must evolve accordingly.
 
@@ -77,13 +77,13 @@ Some of the advantages of SOA for the purposes of migrating legacy systems are i
 \label{subsec:toolsanalysis}
 One of the main tasks in migrating systems is to analyse code for elements which can be extracted and encapsulated, as well as judging the feasibility of migrating a certain piece of code. This would be prohibitively complex (and therefore time-consuming and costly) for a human to perform manually, so tools have been developed to do so automatically (as far as possible).
 
-Sneed \cite{Sneed2009} uses the \textbf{COBAudit} tool to assess a large volume of programs in his pilot project. This took ``...56 different size measurements...'' \cite{Sneed2009} from each program, including lines of code and number of data structures. From these, eight metrics were used to determine the programs' overall complexities (as discussed by Sneed in a 1995 paper \cite{Sneed1995}). These complexity measurements are then normalised using \textbf{SoftAudit}, with values above 0.5 indicating high complexity, and those below indicating low complexity. Any values over 0.8 can be considered to indicate extreme complexity. From the normalised results, it is then possible to select programs which are suitable for reuse, as well as identify the sections of them for which this will be most straightforward or difficult.
+Sneed \cite{Sneed2009} uses the COBAudit tool to assess a large volume of programs in his pilot project. This took ``...56 different size measurements...'' \cite{Sneed2009} from each program, including lines of code and number of data structures. From these, eight metrics were used to determine the programs' overall complexities (as discussed by Sneed in a 1995 paper \cite{Sneed1995}). These complexity measurements are then normalised using SoftAudit, with values above 0.5 indicating high complexity, and those below indicating low complexity. Any values over 0.8 can be considered to indicate extreme complexity. From the normalised results, it is then possible to select programs which are suitable for reuse, as well as identify the sections of them for which this will be most straightforward or difficult.
 
-Lewis et al. \cite{Lewis2005a} use the \textbf{Understand for C++}\footnote{\url{http://www.scitools.com/}} tool to extract both a static analysis of a C++ application, and metrics for assessing the ease of migration. They then use the \textbf{Architecture Reconstruction and Mining} (ARMIN) \cite{O'Brien2005} tool to attempt to reconstruct the architecture of analysed programs, in order to find inter-service dependencies (as well as issues with these dependencies in their current form). This analysis is then used to create a migration strategy moving forward.
+Lewis et al. \cite{Lewis2005a} use the Understand for C++ tool to extract both a static analysis of a C++ application, and metrics for assessing the ease of migration. They then use the Architecture Reconstruction and Mining (ARMIN) \cite{O'Brien2005} tool to attempt to reconstruct the architecture of analysed programs, in order to find inter-service dependencies (as well as issues with these dependencies in their current form). This analysis is then used to create a migration strategy moving forward.
 
 \subsection{Tools for migration}
 \label{subsec:toolsmigration}
-Once reusable code has been identified, there are tools available for facilitating migration. One set of these tools is \textbf{COB2WEB}, created by Sneed \cite{Sneed2008}, comprising \textbf{COBStrip}, \textbf{COBWrap}, and \textbf{COBLink}, as well as the \textbf{COBAudit} tool mentioned in \autoref{subsec:toolsanalysis}.
+Once reusable code has been identified, there are tools available for facilitating migration. One set of these tools is COB2WEB, created by Sneed \cite{Sneed2008}, comprising COBStrip, COBWrap, and COBLink, as well as the COBAudit tool mentioned in \autoref{subsec:toolsanalysis}.
 
 \subsubsection{COBStrip}
 \label{subsubsec:cobstrip}
@@ -91,11 +91,11 @@ This tool uses code slicing to decompose programs \cite{Canfora2000}. This conce
 
 \subsubsection{COBWrap}
 \label{subsubsec:cobwrap}
-This tool uses the stripped programs generated by \textbf{COBStrip}, and replaces input/output (I/O) operations with ``...calls to a wrapper module...'' \cite{Sneed2009,Sneed2008}, as well as moving required data to the correct sections of the program. This can be performed without any user interaction, as it is a reasonably simple operation when used with predictable programmatic structures (such as those in COBOL).
+This tool uses the stripped programs generated by COBStrip, and replaces input/output (I/O) operations with ``...calls to a wrapper module...'' \cite{Sneed2009,Sneed2008}, as well as moving required data to the correct sections of the program. This can be performed without any user interaction, as it is a reasonably simple operation when used with predictable programmatic structures (such as those in COBOL).
 
 \subsubsection{COBLink}
 \label{subsubsec:coblink}
-This tool uses the wrapped programs generated by \textbf{COBWrap}, and creates \textbf{Web Services Description Language} (WSDL)\footnote{\url{http://www.w3.org/TR/wsdl}} interfaces for both incoming requests and outgoing responses, as well as COBOL modules for translating between the WSDL and COBOL parameters. This process has been described by Sneed in detail \cite{Sneed2001}, as well as applied in a practical application \cite{Sneed2009,Sneed2008}. Once these are generated, it is possible to interact with the services with \textbf{Simple Object Access Protocol} (SOAP)\footnote{\url{http://www.w3.org/TR/soap}} messages, thereby accessing the functionality of the legacy application through a modern, flexible interface.
+This tool uses the wrapped programs generated by COBWrap, and creates Web Services Description Language (WSDL) \cite{Christensen2001} interfaces for both incoming requests and outgoing responses, as well as COBOL modules for translating between the WSDL and COBOL parameters. This process has been described by Sneed in detail \cite{Sneed2001}, as well as applied in a practical application \cite{Sneed2009,Sneed2008}. Once these are generated, it is possible to interact with the services with Simple Object Access Protocol (SOAP) \cite{Gudgin2013} messages, thereby accessing the functionality of the legacy application through a modern, flexible interface.
 
 \subsection{Techniques and approaches}
 \label{subsec:techniques}
@@ -105,22 +105,22 @@ Due to the maturity of both mainframe systems and the more modern SOA, there has
 \label{subsubsec:smart}
 SMART was described by Lewis et al. as a ``...process for evaluating legacy components for their potential to become services...'' \cite{Lewis2005,Lewis2005a}. As opposed to the tools mentioned in \autoref{subsec:toolsanalysis} and \autoref{subsec:toolsmigration}, this is a set of in-depth analyses of various aspects of the legacy system, target environment, user base and required effort. This is something more of a software engineering approach than a computer science one, as it involves considering the business as a whole and developing strategies, rather than only considering the technical challenge involved. This, of course, leads to a larger amount of work needing to be performed initially, but creates a more cohesive strategy for the overall migration process.
 
-Part of this process may also involve architecture reconstruction, using a tool such as \textbf{ARMIN} (previously mentioned in \autoref{subsec:toolsanalysis}). This allows for analysis of \textbf{Rigi Standard Format} (RSF)\footnote{\url{http://www.rigi.cs.uvic.ca/downloads/rigi/doc/node52.html}} files, containing metadata extracted from source files in various languages \cite{O'Brien2005}. These analyses are used to create models and abstractions which, in turn, ``...produce higher-levels[\textit{sic}] models and views...'' \cite{O'Brien2005}. Eventually, through this process, the ``...desired set of views is produced.'' \cite{O'Brien2005} An evident use of this is to separate out a legacy application into \textbf{Model--View--Controller} (MVC) layers, as additionally discussed by Bodhuin et al. \cite{Bodhuin2002}.
+Part of this process may also involve architecture reconstruction, using a tool such as ARMIN (previously mentioned in \autoref{subsec:toolsanalysis}). This allows for analysis of Rigi Standard Format (RSF) \cite{Kienle2010} files, containing metadata extracted from source files in various languages \cite{O'Brien2005}. These analyses are used to create models and abstractions which, in turn, ``...produce higher-levels[\textit{sic}] models and views...'' \cite{O'Brien2005}. Eventually, through this process, the ``...desired set of views is produced.'' \cite{O'Brien2005} An evident use of this is to separate out a legacy application into Model--View--Controller (MVC) layers, as additionally discussed by Bodhuin et al. \cite{Bodhuin2002}.
 
 \subsubsection{Service-Oriented Software Reengineering Methodology (SoSR)}
 \label{subsubsec:sosr}
 SoSR was proposed by Chung et al. as an ``...architecture-centric, service-oriented, role-specific and model-driven'' \cite{Chung2007} methodology for software reengineering. It uses a `4+1 view model', where a system is considered to be composed of four primary views:
 \begin{itemize}
-\item \textbf{Design view}
-\item \textbf{Implementation view}
-\item \textbf{Process view}
-\item \textbf{Deployment view}
+\item Design view
+\item Implementation view
+\item Process view
+\item Deployment view
 \end{itemize}
-which share a single \textbf{use case view}. The use case view represents the software engineering aspects of the system architecture, such as user requirements; the four primary views represent the logical and physical, static and dynamic aspects of the overall system. It also makes use of \textbf{Responsible, Accountable, Consulting and Informed} (RACI) charts\footnote{\url{http://racichart.org/}} to show the tasks required for each role in the system.
+which share a single use case view. The use case view represents the software engineering aspects of the system architecture, such as user requirements; the four primary views represent the logical and physical, static and dynamic aspects of the overall system. It also makes use of Responsible, Accountable, Consulting and Informed (RACI) charts \cite{Smith2005} to show the tasks required for each role in the system.
 
 \subsubsection{Ubiquitous Web Applications Design Framework (UWA)}
 \label{subsubsec:uwa}
-UWA \cite{UWAConsortium2002} and the \textbf{Extended UWA Transaction Design Model} (UWAT+) \cite{Distante2005} are discussed by Distante et al. \cite{Distante2006} as a means to reengineer legacy systems. As with \textbf{SoSR} (\autoref{subsubsec:sosr}) and \textbf{SMART} (\autoref{subsubsec:smart}), this deals not only with the technical aspect of system modernisation, but also the software engineering aspects such as requirement gathering. UWAT+ has the concept of ``...Web transaction[s]...'' \cite{Distante2006}, which are a set of user interactions required to complete a given task.
+UWA \cite{UWAConsortium2002} and the Extended UWA Transaction Design Model (UWAT+) \cite{Distante2005} are discussed by Distante et al. \cite{Distante2006} as a means to reengineer legacy systems. As with SoSR (\autoref{subsubsec:sosr}) and SMART (\autoref{subsubsec:smart}), this deals not only with the technical aspect of system modernisation, but also the software engineering aspects such as requirement gathering. UWAT+ has the concept of ``...Web transaction[s]...'' \cite{Distante2006}, which are a set of user interactions required to complete a given task.
 
 This relies fairly heavily on reverse-engineering to generate `meta-models', which can then be used to generate more concrete models in turn. From these, a web version of the original system can be engineered.
 
@@ -128,9 +128,9 @@ A case study of the technique in use can be seen in \cite{Distante:2006:RLA:1134
 
 \subsubsection{CelLEST}
 \label{subsubsec:cellest}
-The CelLEST project\footnote{\url{http://webdocs.cs.ualberta.ca/~stroulia/CELLEST/new/}} deals mostly with front-end interfaces, and user interactions with them, for a given system. Stroulia et al. \cite{Stroulia2002} discuss that, as opposed to techniques based on gaining an understanding of the original application's architecture through code analysis, CelLEST constructs a model of the behaviour of the legacy system through analysing user-interface interaction paths. This model is then used as an interface between users and the legacy application (i.e. wrapping), without modifying the original code.
+The CelLEST project \cite{Stroulia2000} deals mostly with front-end interfaces, and user interactions with them, for a given system. Stroulia et al. \cite{Stroulia2002} discuss that, as opposed to techniques based on gaining an understanding of the original application's architecture through code analysis, CelLEST constructs a model of the behaviour of the legacy system through analysing user-interface interaction paths. This model is then used as an interface between users and the legacy application (i.e. wrapping), without modifying the original code.
 
-Because of the nature of the analysis, this requires a large amount of user interaction, ideally by ``an expert user of the legacy application'' \cite{Stroulia2002}. However, it does not require the full software-engineering processes that are used by techniques such as \textbf{SMART} (\autoref{subsubsec:smart}). Stroulia et al. note that this technique cannot be used for maintenance, as it does not modify the underlying code, but is a means of providing access to said code through a modern interface.
+Because of the nature of the analysis, this requires a large amount of user interaction, ideally by ``an expert user of the legacy application'' \cite{Stroulia2002}. However, it does not require the full software-engineering processes that are used by techniques such as SMART (\autoref{subsubsec:smart}). Stroulia et al. note that this technique cannot be used for maintenance, as it does not modify the underlying code, but is a means of providing access to said code through a modern interface.
 
 \subsubsection{Finite State Automata (FSA)}
 Canfora et al. \cite{Canfora2006,Canfora2008} discuss the usage of FSA to model the interactions between a user and the legacy system, on the basis that a traditional purely `black-box' approach to wrapping will not be aware of the current state of the legacy system when executing a command, which may lead to unknown behaviour (a problem exacerbated by the scaling of the number of users simultaneously accessing a system, from the mainframe to SOA). Thus, the automaton for a given system will keep track of the current state of the underlying system, and model the currently available I/O operations through a wrapper layer. Paths through the automaton can be identified in a similar manner to code slicing (\autoref{subsubsec:cobstrip}), and used to assess whether all the scenarios for a given operation have been accounted for.
@@ -192,11 +192,11 @@ These do not represent an exhaustive list of the available tools and techniques,
 \label{sec:issues}
 Even with the currently available tools and techniques, the problem of modernising legacy systems is far from solved. The main issues which present themselves are those discussed below:
 \begin{itemize}
-\item\textbf{Cost-effectiveness}
-\item\textbf{Maintainability}
-\item\textbf{Risk}
-\item\textbf{Automation}
-\item\textbf{Testing}
+\item Cost-effectiveness
+\item Maintainability
+\item Risk
+\item Automation
+\item Testing
 \end{itemize}
 as well as more human issues such as user-acceptance and the necessity for retraining. It is also important to consider that, in a real-world business scenario, deployment of new systems must be approached gradually in order to not disrupt current operation \cite{Sneed2008,Duncan1996,Almonaies2010}. This itself adds another dimension of complexity to the entire effort of modernisation.
 
@@ -221,7 +221,7 @@ The tools discussed in \autoref{subsec:toolsmigration} and \autoref{subsec:tools
 \section{Conclusion}
 \label{sec:conclusion}
 
-\todo[inline]{Conclusion}
+
 
 \appendices
 %\section{Proof of the First Zonklar Equation}
