@@ -135,13 +135,13 @@ Because of the nature of the analysis, this requires a large amount of user inte
 \subsubsection{Finite State Automata (FSA)}
 Canfora et al. \cite{Canfora2006,Canfora2008} discuss the usage of FSA to model the interactions between a user and the legacy system, on the basis that a traditional purely `black-box' approach to wrapping will not be aware of the current state of the legacy system when executing a command, which may lead to unknown behaviour (a problem exacerbated by the scaling of the number of users simultaneously accessing a system, from the mainframe to SOA). Thus, the automaton for a given system will keep track of the current state of the underlying system, and model the currently available I/O operations through a wrapper layer. Paths through the automaton can be identified in a similar manner to code slicing (\autoref{subsubsec:cobstrip}), and used to assess whether all the scenarios for a given operation have been accounted for.
 
-\subsection{Summaries}
+\subsection{Summary}
 \label{subsec:summary}
 
 \autoref{table:approaches} shows a simplified overview of the four main approaches to modernisation discussed in \autoref{sec:approaches}. For each of these approaches, it is possible to provide a typical cost and effort estimate. However, providing a general assessment of the effectiveness of each technique is impossible for such broad categories. In order to break these categories down somewhat, \autoref{table:tools} summarises the tools discussed in \autoref{subsec:toolsanalysis} and \autoref{subsec:toolsmigration}, while \autoref{table:techniques} summarises the techniques for modernisation discussed in \autoref{subsec:techniques}. Of the five techniques discussed, only SoSR has not been tested in a case study.
 
 \begin{table}[h!]
-\caption{Summary of the four main approaches to modernisation}
+\caption{Comparison of the four main approaches to modernisation}
 \label{table:approaches}
 \centering
 \begin{tabular}{| l | c | c |}
@@ -155,7 +155,7 @@ Canfora et al. \cite{Canfora2006,Canfora2008} discuss the usage of FSA to model 
 \end{table}
 
 \begin{table}[h!]
-\caption{A comparison of tools for modernisation}
+\caption{Comparison of tools for modernisation}
 \label{table:tools}
 \centering
 \begin{tabular}{| l | c | c |}
@@ -172,7 +172,7 @@ Canfora et al. \cite{Canfora2006,Canfora2008} discuss the usage of FSA to model 
 \end{table}
 
 \begin{table}[h!]
-\caption{Summary of specialised techniques for modernisation}
+\caption{Comparison of specialised techniques for modernisation}
 \label{table:techniques}
 \centering
 \begin{tabular}{| l | c | c |}
