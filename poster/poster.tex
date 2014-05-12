@@ -1,0 +1,107 @@
+\documentclass[a1paper,portrait,fontscale=0.45]{baposter}
+
+\usepackage{relsize}		% For \smaller
+\usepackage{url}			% For \url
+\usepackage[font=small,labelfont=bf]{caption}
+
+\definecolor{bordercol}{RGB}{0, 92, 132}
+\definecolor{headercol1}{RGB}{81, 98, 111}
+\definecolor{headercol2}{RGB}{81, 98, 111}
+\definecolor{headerfontcol}{RGB}{0,0,0}
+\definecolor{boxcolor}{RGB}{255, 255, 255}
+\definecolor{backcol}{RGB}{0, 92, 132}
+%\color{white}
+
+\hyphenation{system}
+
+\newcommand{\compresslist}{
+	\setlength{\itemsep}{1pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+}
+
+\begin{document}
+
+\begin{poster}
+{
+	headerfont=\Large\bf\color{white},
+	borderColor=bordercol,
+	headerColorOne=headercol1,
+	headerColorTwo=headercol2,
+	headerFontColor=headerfontcol,
+	headershape = rectangle,
+	textborder = none,
+	headerborder = none,
+	boxColorOne=boxcolor,
+	bgColorOne=backcol,
+	background = plain,
+	columns=2,
+	headerheight=0.15\textheight
+}
+{
+
+}
+{
+	\color{white}{Investigating the feasibility and worth\\of migrating legacy systems}
+}
+{
+	\vspace{1em}
+	\color{white}{Candidate: Patrick Naish - pn3g10@zepler.net\\
+	Supervisor: Prof. Michael Butler - mjb@ecs.soton.ac.uk}
+}
+{
+	\includegraphics[keepaspectratio=true, height=5em]{uos.png}
+}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\headerbox{Introduction}{name=introduction,column=0,row=0, span=2}{
+Mainframe computing has long been the backbone of technological industry. Despite having fallen out of favour in deference to the modern client-server style of interaction, mainframe software still underpins a vast amount of modern systems. Despite the fact that there were an estimated 200 billion lines of COBOL in use in 2008 \cite{Datamonitor2008}, COBOL is widely considered to be a dead language, and the fact that young computer scientists are primarily taught languages such as Java \cite{Sneed2013} and Python means that many are unwilling to learn older languages. Those developers who do know the languages required to maintain legacy mainframe systems are rapidly reaching the age of retirement and leaving the industry. Thus, it is important to find a means by which to modernise legacy systems to preserve their functionality, while allowing for maintenance.
+}
+
+\headerbox{Approaches to modernisation}{name=approaches,column=0,below=introduction, span=1}{
+The four main approaches suggested by Almonaies et al. \cite{Almonaies2010} are:
+\begin{description}
+	\compresslist
+	\item[Replacement] The original system is rewritten in a new language or replaced with an off-the-shelf solution.
+	\item[Reengineering] Modern functionality is reverse-engineered into the legacy system.
+	\item[Wrapping] An interface is created to access legacy components as services without changing them.
+	\item[Migration] The legacy system is transitioned into a modern environment while retaining functionality.
+\end{description}
+
+The most common end-goal for modernisation is to be able to access the system as a \textbf{Web Service}\footnote{\smaller See \url{http://www.w3.org/TR/wsdl}}.
+}
+
+\headerbox{Tools}{name=tools,column=0,below=approaches}{
+There are various tools available for aiding the modernisation effort. The examined tools fell into two categories: those for \textbf{analysis} of systems, and those for the actual \textbf{migration}.
+\vspace{1em}
+
+An example of a tool for analysis is \textbf{COBAudit}, which collects metrics about COBOL programs \cite{Sneed2009}. These metrics can then be used to assess the complexity of a program, and said program's suitability for modernisation. \textbf{ARMIN} is a somewhat more specialised tool, which reconstructs a program's architecture from a static analysis of the code \cite{O'Brien2005}. This can be used to identify dependencies within programs, which can then inform the creation of a migration strategy.
+\vspace{1em}
+
+One set of tools for migration is \textbf{COB2WEB}, which comprises COBAudit along with COBStrip, COBWrap and COBLink \cite{Sneed2008}. \textbf{COBStrip} separates out a program into `slices', which each represent a path through the program performing a distinct function. These are used to create cut-down versions of the original program performing only those functions, allowing for each piece of functionality to be represented by a separate Web Service. To this end, \textbf{COBWrap} adds an I/O layer to sit between the legacy code and the web, and \textbf{COBLink} generates Web Service Description Language (WSDL) interfaces for the same.
+
+\begin{center}
+\includegraphics[keepaspectratio=true, width=20em]{cob2web.png}
+\captionof{figure}{An illustration of the COB2WEB process}
+\end{center}
+}
+
+\headerbox{Techniques}{name=techniques,column=1,below=introduction}{
+
+}
+
+\headerbox{Conclusion}{name=conclusion,column=0,below=tools}{
+
+}
+
+\headerbox{References}{name=references,column=1,below=techniques}{
+	\renewcommand{\refname}{\vspace{-0.8em}}
+	\smaller
+	\bibliographystyle{plain}
+	\bibliography{references}
+}
+
+\end{poster}
+
+\end{document}
